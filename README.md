@@ -1,33 +1,33 @@
-# Englishify / Arabicify – Arabic ⇄ English Keyboard Fix (Chrome Extension)
+# Did You Mean – Arabic ⇄ English Keyboard Fix (Chrome Extension)
 
 [![npm](https://img.shields.io/npm/v/dym-ar-en?logo=npm)](https://www.npmjs.com/package/dym-ar-en)
 
-A Chrome extension that **Englishifies or Arabicifies text** typed with the wrong keyboard layout.  
+A Chrome extension that helps correct text typed with the wrong Arabic or English keyboard layout.  
 
 This extension is a browser wrapper around the **dym-ar-en** keyboard-layout correction library:  
 👉 https://www.npmjs.com/package/dym-ar-en
 
 ---
 
-## What “Englishify / Arabicify” means
+## What it does
 
-- **Arabicify**:  
-  Convert text typed on an English keyboard into correct Arabic text  
-  Example: `hgsbl ugd;l` → `السلام عليكم`
+If you type text in the wrong keyboard language, this extension lets you quickly correct it.  
 
-- **Englishify**:  
-  Convert text typed on an Arabic keyboard into correct English text  
-  Example: `اثممخ` → `hello`
+Example:  
+- Typing on English keyboard while meaning Arabic: `hgsbl ugd;l` → Corrected to: `السلام عليكم`  
+- Typing on Arabic keyboard while meaning English: `اثممخ` → Corrected to: `hello`
+
+It works like **“Did you mean …?”** for your typed text.
 
 ---
 
 ## How to use
 
-1. Select text inside an **input**, **textarea**, or **editable field**
-2. Right-click
-3. Choose **Englishify ↔ Arabicify selected text**
+1. Select text inside an **input**, **textarea**, or **editable field**  
+2. Right-click  
+3. Choose **Did you mean …?** to apply the correction
 
-The selected text is replaced with its Englishified or Arabicified version.
+The selected text is replaced with the corrected version suggested by `dym-ar-en`.
 
 ---
 
@@ -44,8 +44,8 @@ The context menu **does not appear** on static page text (articles, paragraphs, 
 ## How it works
 
 - Uses the **dym-ar-en** library to:
-  - Detect wrong keyboard layout
-  - Convert Arabic ⇄ English keyboard mappings
+  - Detect text typed in the wrong keyboard layout
+  - Convert between Arabic ⇄ English layouts
 - Runs **entirely locally**
 - No network requests
 - No tracking or analytics
@@ -79,19 +79,15 @@ Load the extension in Chrome:
 chrome://extensions → Developer Mode → Load unpacked
 ```
 
-
 ## Core Engine
 
-The keyboard conversion logic is implemented in the dym-ar-en npm package:
+The keyboard correction logic is implemented in the dym-ar-en npm package:
+https://www.npmjs.com/package/dym-ar-en
 
-[dym-ar-en](https://www.npmjs.com/package/dym-ar-en)
+Use the npm package directly if you want to implement “Did you mean …?” style corrections in Node.js or web apps.
 
-You can use the npm package directly if you need Englishify / Arabicify behavior in Node.js or web apps.
-
-## Chrome Extension
-
-This extension is a browser wrapper around the dym-ar-en keyboard-layout correction library:
+---
 
 ## License
 
-MIT
+MIT 
