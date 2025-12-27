@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
         id: "fix-ar-en",
-        title: "Fix Arabic / English Keyboard",
+        title: "Englishify ↔ Arabicify selected text",
         contexts: ["editable"] // ONLY editable fields
     });
 });
