@@ -5,7 +5,7 @@
   "type": "module",
   "author": "Hani Yahya",
   "scripts": {
-    "build": "esbuild src/content.ts --bundle --platform=browser --target=chrome120 --outfile=dist/content.js"
+    "build": "esbuild src/content.ts --bundle --platform=browser --target=chrome120 --minify --outfile=dist/content.js"
   },
   "dependencies": {
     "dym-ar-en": "^0.1.3"
