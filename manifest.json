@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Did you mean …?",
+  "name": "Fix Arabic / English Keyboard",
   "description": "Correct Arabic or English text typed with the wrong keyboard layout",
   "version": "1.0.0",
   "permissions": ["contextMenus", "scripting", "activeTab"],
