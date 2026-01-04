@@ -6,11 +6,15 @@ chrome.runtime.onInstalled.addListener(() => {
     });
 });
 
-chrome.contextMenus.onClicked.addListener((info, tab) => {
+chrome.contextMenus.onClicked.addListener(async (_, tab) => {
     if (!tab?.id) return;
 
-    chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        files: ["dist/content.js"]
-    });
+    try {
+        await chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            files: ["dist/content.js"]
+        });
+    } catch (err) {
+        console.error("DYM injection failed", err);
+    }
 });
