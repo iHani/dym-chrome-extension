@@ -25,7 +25,7 @@ It works like **“Did you mean …?”** for your typed text.
 
 1. Select text inside an **input**, **textarea**, or **editable field**  
 2. Right-click  
-3. Choose **Did you mean …?** to apply the correction
+3. Choose **Did You Mean – Arabic ⇄ English** to apply the correction
 
 The selected text is replaced with the corrected version suggested by `dym-ar-en`.
 
