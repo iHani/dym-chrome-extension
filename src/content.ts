@@ -9,7 +9,9 @@ function fixEditableSelection() {
 
     if (!active) return;
 
-    // ✅ INPUT or TEXTAREA
+    // ============================
+    // INPUT / TEXTAREA (undo-safe)
+    // ============================
     if (
         active instanceof HTMLInputElement ||
         active instanceof HTMLTextAreaElement
@@ -24,34 +26,28 @@ function fixEditableSelection() {
 
         if (!result.needsCorrection) return;
 
+        // This preserves undo history
         active.setRangeText(result.corrected, start, end, "end");
+        active.dispatchEvent(new Event("input", { bubbles: true }));
         return;
     }
 
-    // ✅ CONTENTEDITABLE
+    // ============================
+    // CONTENTEDITABLE (undo-safe)
+    // ============================
     if (active.isContentEditable) {
         const selection = window.getSelection();
         if (!selection || selection.rangeCount === 0) return;
         if (selection.isCollapsed) return;
-        const MIN_LEN = 2;
-        if (selection.toString().trim().length < MIN_LEN) return;
 
-        const range = selection.getRangeAt(0);
         const text = selection.toString();
-        if (!text.trim()) return;
+        if (!text.trim() || text.trim().length < 2) return;
 
         const result = correctKeyboardInput(text);
         if (!result.needsCorrection) return;
 
-        range.deleteContents();
-        const node = document.createTextNode(result.corrected);
-        range.insertNode(node);
-
-        // Move cursor to end of inserted text
-        range.setStartAfter(node);
-        range.collapse(true);
-        selection.removeAllRanges();
-        selection.addRange(range);
+        // execCommand preserves undo stack in rich editors
+        document.execCommand("insertText", false, result.corrected);
     }
 }
 
