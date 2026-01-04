@@ -1,33 +1,39 @@
-# Did You Mean – Arabic ⇄ English Keyboard Fix (Chrome Extension)
+# Did You Mean? – Arabic ⇄ English Keyboard Fix
 
-[![npm](https://img.shields.io/npm/v/dym-ar-en?logo=npm)](https://www.npmjs.com/package/dym-ar-en)
+A lightweight browser extension that fixes text typed using the wrong Arabic or English keyboard layout.
 
-A Chrome extension that helps correct text typed with the wrong Arabic or English keyboard layout.  
-
-This extension is a browser wrapper around the **dym-ar-en** keyboard-layout correction library:  
-👉 https://www.npmjs.com/package/dym-ar-en
+This extension is built on top of the open-source dym-ar-en library:
+https://www.npmjs.com/package/dym-ar-en
 
 ---
 
 ## What it does
 
-If you type text in the wrong keyboard language, this extension lets you quickly correct it.  
+If you accidentally type while your keyboard language is set incorrectly, this extension lets you fix it instantly.
 
-Example:  
-- Typing on English keyboard while meaning Arabic: `hgsbl ugd;l` → Corrected to: `السلام عليكم`  
-- Typing on Arabic keyboard while meaning English: `اثممخ` → Corrected to: `hello`
+Examples:
 
-It works like **“Did you mean …?”** for your typed text.
+- hgsbl ugd;l → السلام عليكم  
+- اثممخ → hello  
+
+It works like a “Did you mean?” correction, but for keyboard layouts instead of spelling.
 
 ---
 
 ## How to use
 
-1. Select text inside an **input**, **textarea**, or **editable field**  
+1. Select text inside an input, textarea, or editable field  
 2. Right-click  
-3. Choose **Did You Mean – Arabic ⇄ English** to apply the correction
+3. Choose Did You Mean? Arabic ⇄ English  
 
-The selected text is replaced with the corrected version suggested by `dym-ar-en`.
+<p align="center">
+  <img src="icons/example.png" alt="Extension preview" width="500" />
+</p>
+
+
+The selected text is replaced with the corrected version.
+
+Undo is fully supported using Ctrl+Z.
 
 ---
 
@@ -35,27 +41,44 @@ The selected text is replaced with the corrected version suggested by `dym-ar-en
 
 - Input fields  
 - Textareas  
-- Chat boxes and editors (`contenteditable`)
+- Contenteditable editors  
+- Chat apps such as WhatsApp Web, Telegram Web, and Gmail  
+- Rich editors like Notion and CMS editors  
 
-The context menu **does not appear** on static page text (articles, paragraphs, headings).
-
----
-
-## How it works
-
-- Uses the **dym-ar-en** library to:
-  - Detect text typed in the wrong keyboard layout
-  - Convert between Arabic ⇄ English layouts
-- Runs **entirely locally**
-- No network requests
-- No tracking or analytics
+The context menu only appears in editable fields and never on static page text.
 
 ---
 
 ## Privacy
 
-This extension does **not** collect, store, or transmit any user data.  
-All processing happens locally in the browser.
+This extension is completely privacy-friendly.
+
+- No data collection  
+- No analytics  
+- No tracking  
+- No network requests  
+
+All text correction happens locally in your browser.
+
+---
+
+## Performance
+
+- Runs only when you manually trigger it  
+- No background scanning  
+- No persistent content scripts  
+- Very small footprint  
+
+---
+
+## Core engine
+
+The keyboard correction logic is implemented in the dym-ar-en npm package.
+
+You can use the same engine directly in:
+- Node.js applications  
+- Web applications  
+- Automation scripts  
 
 ---
 
@@ -63,31 +86,33 @@ All processing happens locally in the browser.
 
 Install dependencies:
 
-```bash
+```
 npm install
 ```
 
 Build the extension:
 
-```bash
+```
 npm run build
 ```
 
-Load the extension in Chrome:
+Load the extension for testing:
 
-```bash
-chrome://extensions → Developer Mode → Load unpacked
-```
+- Chrome: chrome://extensions → Enable Developer Mode → Load unpacked  
+- Firefox: about:debugging → This Firefox → Load Temporary Add-on  
 
-## Core Engine
+---
 
-The keyboard correction logic is implemented in the dym-ar-en npm package:
-https://www.npmjs.com/package/dym-ar-en
+## Browser support
 
-Use the npm package directly if you want to implement “Did you mean …?” style corrections in Node.js or web apps.
+- Google Chrome  
+- Chromium-based browsers  
+- Mozilla Firefox  
+
+The extension uses modern browser APIs and follows Manifest Version 3 standards.
 
 ---
 
 ## License
 
-MIT 
+MIT
