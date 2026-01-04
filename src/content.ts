@@ -44,7 +44,14 @@ function fixEditableSelection() {
         if (!result.needsCorrection) return;
 
         range.deleteContents();
-        range.insertNode(document.createTextNode(result.corrected));
+        const node = document.createTextNode(result.corrected);
+        range.insertNode(node);
+
+        // Move cursor to end of inserted text
+        range.setStartAfter(node);
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
     }
 }
 
